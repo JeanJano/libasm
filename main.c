@@ -8,11 +8,12 @@ extern size_t ft_strlen(const char *);
 extern char *ft_strcpy(char *dest, const char *src);
 extern int ft_strcmp(const char *s1, const char *s2);
 extern ssize_t ft_write(int fd, const void *buf, size_t count);
+extern ssize_t ft_read(int fd, void *buf, size_t count);
 
 int main() {
     // // TEST STRLEN
-    {
-        // printf("\nTEST strlen\n");
+    // {
+        // printf("TEST strlen\n");
         // printf("Hello, World! (%ld)\n", strlen("Hello, World!"));
         // printf(" (%ld)\n", strlen(""));
         // printf("foeurhotygrhgeghruy\nriueugy\n (%ld)\n", strlen("foeurhotygrhgeghruy\nriueugy\n"));
@@ -20,11 +21,11 @@ int main() {
         // printf("Hello, World! (%ld)\n", ft_strlen("Hello, World!"));
         // printf(" (%ld)\n", ft_strlen(""));
         // printf("foeurhotygrhgeghruy\nriueugy\n (%ld)\n", ft_strlen("foeurhotygrhgeghruy\nriueugy\n"));
-    };
+    // };
 
     // // TEST STRCPY
     // {
-    //     printf("\nTEST strcpy\n");
+    //     printf("TEST strcpy\n");
     //     char dest[100];
     //     char *test = strcpy(dest, "Hello, World!");
     //     printf("Hello, World! (%s)\n", test);
@@ -36,7 +37,7 @@ int main() {
     //     printf("c'est wefniufrueoe\n\n\n\\wrurg (%s)\n", dest4);
     // };
     // {
-    //     printf("\nTEST ft_strcpy\n");
+    //     printf("TEST ft_strcpy\n");
     //     char dest[100];
     //     char *test = strcpy(dest, "Hello, World!");
     //     printf("Hello, World! (%s)\n", test);
@@ -50,7 +51,7 @@ int main() {
 
     // // TEST STRCMP
     // {
-    //     printf("\nTEST strcmp\n");
+    //     printf("TEST strcmp\n");
     //     int test = strcmp("Hello, World!", "Hello, World!");
     //     printf("%d\n", test);
     //     test = strcmp("Hello, World!", "Hello, World");
@@ -63,7 +64,7 @@ int main() {
     //     printf("%d\n", test);
     // }
     // {
-    //     printf("\nTEST ft_strcmp\n");
+    //     printf("TEST ft_strcmp\n");
     //     int test1 = ft_strcmp("Hello, World!", "Hello, World!");
     //     printf("%d\n", test1);
     //     test1 = ft_strcmp("Hello, World!", "Hello, World");
@@ -76,13 +77,23 @@ int main() {
     //     printf("%d\n", test1);
     // }
 
-    // FT_WRITE
+    // // FT_WRITE
+    // {
+    //     printf("TEST ft_write\n");
+    //     int fd = open("test.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    //     ssize_t test = ft_write(fd, "Hello, World!\n", 14);
+    //     printf("%ld", test);
+    //     ft_write(1, "Hello, World!\n", 14);
+    // }
+
+    // // FT_READ
     {
-        printf("\nTEST ft_write\n");
-        int fd = open("test.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
-        ssize_t test = ft_write(fd, "Hello, World!\n", 14);
-        printf("%ld", test);
-        ft_write(1, "Hello, World!\n", 14);
+        printf("TEST ft_read\n");
+        int fd = open("ft_strlen.s", O_RDONLY);
+        char buf[100];
+        ssize_t test = ft_read(fd, buf, 100);
+        printf("%ld\n", test);
+        printf("%s\n", buf);
     }
     return 0;
 }

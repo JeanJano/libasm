@@ -3,6 +3,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <errno.h>
+#include <unistd.h>
 
 extern size_t ft_strlen(const char *);
 extern char *ft_strcpy(char *dest, const char *src);
@@ -79,33 +81,75 @@ int main() {
     // }
 
     // // FT_WRITE
-    // {
-    //     printf("TEST ft_write\n");
-    //     int fd = open("test.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
-    //     ssize_t test = ft_write(fd, "Hello, World!\n", 14);
-    //     printf("%ld", test);
-    //     ft_write(1, "Hello, World!\n", 14);
-    // }
+    {
+        // printf("TEST ft_write\n");
+        // int fd = open("test.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+        // ssize_t test = ft_write(fd, "Hello, World!\n", 14);
+        // printf("%ld", test);
+        // ft_write(1, "Hello, World!\n", 14);
+
+        // errno
+        // printf("error test ft_write\n");
+        // printf("Valid test:\n");
+        // ft_write(1, "Hello, World!\n", 14);
+        // printf("errno: %s\n", strerror(errno));
+        // write(1, "Hello, World!\n\n", 14);
+        // printf("errno: %s\n\n", strerror(errno));
+
+        // printf("Invalid test:\n");
+        // printf("invalid fd: -1\n");
+        // ft_write(-1, "fd: -1\n", 8);
+        // printf("errno: %s\n", strerror(errno));
+        // write(-1, "fd: -1\n", 8);
+        // printf("errno: %s\n\n", strerror(errno));
+
+        // printf("invalid size: -1\n");
+        // ft_write(1, "size: -1\n", -1);
+        // printf("errno: %s\n", strerror(errno));
+        // write(1, "size: -1\n", -1);
+        // printf("errno: %s\n", strerror(errno));
+    }
 
     // // FT_READ
-    // {
-    //     printf("TEST ft_read\n");
-    //     int fd = open("ft_strlen.s", O_RDONLY);
-    //     char buf[100];
-    //     ssize_t test = ft_read(fd, buf, 100);
-    //     printf("%ld\n", test);
-    //     printf("%s\n", buf);
-    // }
+    {
+        // printf("TEST ft_read\n");
+        // int fd = open("ft_strlen.s", O_RDONLY);
+        // char buf[100];
+        // ssize_t test = ft_read(fd, buf, 100);
+        // printf("%ld\n", test);
+        // printf("%s\n", buf);
+
+        // // errno
+        // printf("error test ft_read\n");
+        // printf("Valid test:\n");
+        // ft_read(fd, buf, 10);
+        // printf("errno: %s\n", strerror(errno));
+        // read(fd, buf, 10);
+        // printf("errno: %s\n\n", strerror(errno));
+
+        // printf("Invalid test:\n");
+        // printf("invalid fd: -1\n");
+        // ft_read(-1, buf, 10);
+        // printf("errno: %s\n", strerror(errno));
+        // read(-1, buf, 10);
+        // printf("errno: %s\n\n", strerror(errno));
+
+        // printf("invalid size: -1\n");
+        // ft_read(fd, buf, -1);
+        // printf("errno: %s\n", strerror(errno));
+        // read(fd, buf, -1);
+        // printf("errno: %s\n", strerror(errno));
+    }
 
     // // FT_STRDUP
     {
         printf("TEST ft_strdup\n");
         char *dup;
-        dup = strdup("wqdwqdqwdqwdwqdqw");
+        dup = strdup("wdewwe");
         printf("\nbase: %s\n", dup);
 
         char *dup1;
-        dup1 = ft_strdup("wqdwqdqwdqwdwqdqw");
+        dup1 = ft_strdup("wdewwe");
         printf("test: %s|\n\n", dup1);
     }
     return 0;

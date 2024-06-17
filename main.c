@@ -9,18 +9,19 @@ extern char *ft_strcpy(char *dest, const char *src);
 extern int ft_strcmp(const char *s1, const char *s2);
 extern ssize_t ft_write(int fd, const void *buf, size_t count);
 extern ssize_t ft_read(int fd, void *buf, size_t count);
+extern char *ft_strdup(const char *s);
 
 int main() {
     // // TEST STRLEN
     // {
-        // printf("TEST strlen\n");
-        // printf("Hello, World! (%ld)\n", strlen("Hello, World!"));
-        // printf(" (%ld)\n", strlen(""));
-        // printf("foeurhotygrhgeghruy\nriueugy\n (%ld)\n", strlen("foeurhotygrhgeghruy\nriueugy\n"));
-        // printf("\nTEST ft_strlen\n");
-        // printf("Hello, World! (%ld)\n", ft_strlen("Hello, World!"));
-        // printf(" (%ld)\n", ft_strlen(""));
-        // printf("foeurhotygrhgeghruy\nriueugy\n (%ld)\n", ft_strlen("foeurhotygrhgeghruy\nriueugy\n"));
+    //     printf("TEST strlen\n");
+    //     printf("Hello, World! (%ld)\n", strlen("Hello, World!"));
+    //     printf(" (%ld)\n", strlen(""));
+    //     printf("foeurhotygrhgeghruy\nriueugy\n (%ld)\n", strlen("foeurhotygrhgeghruy\nriueugy\n"));
+    //     printf("\nTEST ft_strlen\n");
+    //     printf("Hello, World! (%ld)\n", ft_strlen("Hello, World!"));
+    //     printf(" (%ld)\n", ft_strlen(""));
+    //     printf("foeurhotygrhgeghruy\nriueugy\n (%ld)\n", ft_strlen("foeurhotygrhgeghruy\nriueugy\n"));
     // };
 
     // // TEST STRCPY
@@ -87,13 +88,25 @@ int main() {
     // }
 
     // // FT_READ
+    // {
+    //     printf("TEST ft_read\n");
+    //     int fd = open("ft_strlen.s", O_RDONLY);
+    //     char buf[100];
+    //     ssize_t test = ft_read(fd, buf, 100);
+    //     printf("%ld\n", test);
+    //     printf("%s\n", buf);
+    // }
+
+    // // FT_STRDUP
     {
-        printf("TEST ft_read\n");
-        int fd = open("ft_strlen.s", O_RDONLY);
-        char buf[100];
-        ssize_t test = ft_read(fd, buf, 100);
-        printf("%ld\n", test);
-        printf("%s\n", buf);
+        printf("TEST ft_strdup\n");
+        char *dup;
+        dup = strdup("wqdwqdqwdqwdwqdqw");
+        printf("\nbase: %s\n", dup);
+
+        char *dup1;
+        dup1 = ft_strdup("wqdwqdqwdqwdwqdqw");
+        printf("test: %s|\n\n", dup1);
     }
     return 0;
 }

@@ -3,18 +3,22 @@ NASMFLAGS = -f elf64
 AR = ar
 ARFLAGS = rcs
 LIB = libasm.a
-OBJ = ft_strlen.o ft_strcpy.o ft_strcmp.o ft_write.o ft_read.o ft_strdup.o
+OBJ_DIR = obj/
+SRC_DIR = src/
+SRC = ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
+OBJ = $(SRC:%.s=$(OBJ_DIR)/%.o)
 
 all: $(LIB)
 
 $(LIB): $(OBJ)
 	$(AR) $(ARFLAGS) $@ $^
 
-%.o: %.s
+$(OBJ_DIR)%.o: $(SRC_DIR)%.s
+	@mkdir -p $(OBJ_DIR)
 	$(NASM) $(NASMFLAGS) $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm $(LIB)

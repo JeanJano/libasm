@@ -11,7 +11,8 @@ SRC = 	ft_strlen.s \
 		ft_write.s \
 		ft_read.s \
 		ft_strdup.s \
-		ft_list_size.s
+		ft_list_size.s \
+		ft_list_push_front.s
 OBJ = $(SRC:%.s=$(OBJ_DIR)/%.o)
 
 all: $(LIB)

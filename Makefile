@@ -5,7 +5,13 @@ ARFLAGS = rcs
 LIB = libasm.a
 OBJ_DIR = obj/
 SRC_DIR = src/
-SRC = ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
+SRC = 	ft_strlen.s \
+		ft_strcpy.s \
+		ft_strcmp.s \
+		ft_write.s \
+		ft_read.s \
+		ft_strdup.s \
+		ft_list_size.s
 OBJ = $(SRC:%.s=$(OBJ_DIR)/%.o)
 
 all: $(LIB)
